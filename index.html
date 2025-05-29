@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextDoorReads - Buy Books From Your Neighbors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="NextDoorReads" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalog.html">Catalog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sell.html">Sell Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+                <div class="d-flex">
+                    <a href="cart.html" class="btn btn-outline-primary me-2">
+                        <i class="bi bi-cart"></i> Cart <span id="cart-count" class="badge bg-primary">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-primary">Login/Signup</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Discover Books in Your Neighborhood</h1>
+            <p class="lead mb-4">Buy from local book lovers, support your community, and find your next favorite read just around the corner.</p>
+            <div class="search-bar mx-auto mb-5">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search for books or genres...">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+            <a href="catalog.html" class="btn btn-lg btn-outline-primary">Browse Local Books</a>
+        </div>
+    </header>
+
+    <section class="features py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-house-door fs-1 text-primary"></i>
+                    </div>
+                    <h3>Local Sellers</h3>
+                    <p>Connect with book lovers in your neighborhood and discover hidden gems nearby.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-currency-dollar fs-1 text-primary"></i>
+                    </div>
+                    <h3>Great Prices</h3>
+                    <p>Find affordable books while supporting local sellers instead of big corporations.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-truck fs-1 text-primary"></i>
+                    </div>
+                    <h3>Easy Pickup</h3>
+                    <p>Arrange convenient local pickup or delivery options with sellers in your area.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trending-books py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Trending in Your Area</h2>
+            <div class="row" id="trending-books-container">
+                <!-- Books will be loaded here via JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="catalog.html" class="btn btn-primary">View All Local Books</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Community Says</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <p class="card-text">"I've discovered so many great books from neighbors I never would have met otherwise. NextDoorReads has revived my love for reading!"</p>
+                            <div class="d-flex align-items-center">
+                                <img src="user1.jpg" class="rounded-circle me-3" width="50" height="50" alt="User">
+                                <div>
+                                    <h5 class="mb-0">Sarah J.</h5>
+                                    <small class="text-muted">Seattle, WA</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <p class="card-text">"Finally a way to sell my books without dealing with shipping or Amazon fees. My bookshelf is cleaner and my wallet is happier!"</p>
+                            <div class="d-flex align-items-center">
+                                <img src="user2.jpg" class="rounded-circle me-3" width="50" height="50" alt="User">
+                                <div>
+                                    <h5 class="mb-0">Michael T.</h5>
+                                    <small class="text-muted">Austin, TX</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <p class="card-text">"I love meeting fellow readers in my area and the convenience of picking up books just a few blocks away. Highly recommend!"</p>
+                            <div class="d-flex align-items-center">
+                                <img src="user3.jpg" class="rounded-circle me-3" width="50" height="50" alt="User">
+                                <div>
+                                    <h5 class="mb-0">Priya K.</h5>
+                                    <small class="text-muted">Chicago, IL</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>NextDoorReads</h5>
+                    <p>Connecting readers and supporting local communities through shared love of books.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="catalog.html" class="text-white">Catalog</a></li>
+                        <li><a href="sell.html" class="text-white">Sell Books</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="faq.html" class="text-white">FAQ</a></li>
+                        <li><a href="contact.html" class="text-white">Contact Us</a></li>
+                        <li><a href="privacy.html" class="text-white">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Connect</h5>
+                    <div class="social-links mb-3">
+                        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+                    </div>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 NextDoorReads. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

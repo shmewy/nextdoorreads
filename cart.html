@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | NextDoorReads</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Same navigation as homepage -->
+    </nav>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h2 class="h5 mb-0">Your Shopping Cart (3 items)</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4 border-bottom pb-3">
+                                <div class="col-md-2">
+                                    <img src="book1.jpg" alt="Book cover" class="img-fluid">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>The Midnight Library</h5>
+                                    <p class="text-muted">Matt Haig</p>
+                                    <p class="text-success">Available for pickup: 0.7 mi away</p>
+                                    <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3" style="max-width: 120px;">
+                                        <button class="btn btn-outline-secondary" type="button">-</button>
+                                        <input type="text" class="form-control text-center" value="1">
+                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="fw-bold">$8.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-4 border-bottom pb-3">
+                                <div class="col-md-2">
+                                    <img src="book2.jpg" alt="Book cover" class="img-fluid">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Where the Crawdads Sing</h5>
+                                    <p class="text-muted">Delia Owens</p>
+                                    <p class="text-success">Available for pickup: 1.2 mi away</p>
+                                    <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3" style="max-width: 120px;">
+                                        <button class="btn btn-outline-secondary" type="button">-</button>
+                                        <input type="text" class="form-control text-center" value="1">
+                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="fw-bold">$6.50</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-2">
+                                    <img src="book4.jpg" alt="Book cover" class="img-fluid">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Educated</h5>
+                                    <p class="text-muted">Tara Westover</p>
+                                    <p class="text-success">Available for pickup: 0.5 mi away</p>
+                                    <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3" style="max-width: 120px;">
+                                        <button class="btn btn-outline-secondary" type="button">-</button>
+                                        <input type="text" class="form-control text-center" value="1">
+                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="fw-bold">$7.25</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h2 class="h5 mb-0">Pickup Options</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="pickupOption" id="pickupHome" checked>
+                                <label class="form-check-label" for="pickupHome">
+                                    <strong>Pickup at seller's home</strong><br>
+                                    <small class="text-muted">Coordinate pickup times directly with sellers</small>
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="pickupOption" id="pickupNeutral">
+                                <label class="form-check-label" for="pickupNeutral">
+                                    <strong>Neutral meeting location</strong><br>
+                                    <small class="text-muted">Meet at a public place like a coffee shop</small>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pickupOption" id="pickupDelivery">
+                                <label class="form-check-label" for="pickupDelivery">
+                                    <strong>Local delivery (if offered)</strong><br>
+                                    <small class="text-muted">Additional fees may apply</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h2 class="h5 mb-0">Order Summary</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Subtotal (3 items)</span>
+                                <span>$22.74</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Service Fee</span>
+                                <span>$1.50</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between fw-bold mb-3">
+                                <span>Total</span>
+                                <span>$24.24</span>
+                            </div>
+                            <button class="btn btn-primary w-100 mb-3">Proceed to Checkout</button>
+                            <p class="small text-muted">By completing your purchase, you agree to NextDoorReads' <a href="#">Terms of Service</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h2 class="h5 mb-0">Suggested Local Sellers</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="user1.jpg" class="rounded-circle me-3" width="50" height="50" alt="Seller">
+                                <div>
+                                    <h5 class="mb-0">Sarah J.</h5>
+                                    <small class="text-muted">0.7 mi away • 12 books available</small>
+                                    <a href="#" class="d-block small">View all books from this seller</a>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <img src="user3.jpg" class="rounded-circle me-3" width="50" height="50" alt="Seller">
+                                <div>
+                                    <h5 class="mb-0">Priya K.</h5>
+                                    <small class="text-muted">0.5 mi away • 8 books available</small>
+                                    <a href="#" class="d-block small">View all books from this seller</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-5">
+        <!-- Same footer as homepage -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
