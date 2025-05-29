@@ -6,11 +6,14 @@ body {
 }
 
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), url('books-bg.jpg');
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('books-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
 }
+
 
 .feature-icon i {
     color: #0d6efd;
@@ -74,5 +77,54 @@ body {
     
     .search-bar {
         width: 100%;
+    }
+}
+
+/* Upload Page Specific Styles */
+.condition-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.condition-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.condition-icon {
+    font-size: 2rem;
+    color: #6c757d;
+}
+
+.dropzone {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone:hover {
+    background-color: #f8f9fa;
+}
+
+#photoPreview img {
+    transition: transform 0.2s ease;
+}
+
+#photoPreview img:hover {
+    transform: scale(1.05);
+}
+
+/* Success Modal */
+.modal-success-icon {
+    font-size: 4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .condition-card {
+        margin-bottom: 1rem;
+    }
+    
+    #reviewBookImage {
+        height: 200px;
     }
 }
