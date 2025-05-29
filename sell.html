@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Books | NextDoorReads</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Same navigation as previous pages -->
+    </nav>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h2 class="h4 mb-0"><i class="bi bi-book me-2"></i>List a Book for Sale</h2>
+                        </div>
+                        <div class="card-body">
+                            <form id="bookUploadForm">
+                                <!-- Step 1: Book Details -->
+                                <div class="mb-4" id="step1">
+                                    <h3 class="h5 mb-3 border-bottom pb-2">1. Book Information</h3>
+                                    
+                                    <div class="mb-3">
+                                        <label for="bookTitle" class="form-label">Book Title *</label>
+                                        <input type="text" class="form-control" id="bookTitle" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="bookAuthor" class="form-label">Author *</label>
+                                        <input type="text" class="form-control" id="bookAuthor" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="bookIsbn" class="form-label">ISBN (optional)</label>
+                                        <input type="text" class="form-control" id="bookIsbn" placeholder="10 or 13 digit number">
+                                        <small class="text-muted">Adding ISBN helps buyers find your book more easily</small>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="bookGenre" class="form-label">Genre *</label>
+                                            <select class="form-select" id="bookGenre" required>
+                                                <option value="" selected disabled>Select a genre</option>
+                                                <option value="fiction">Fiction</option>
+                                                <option value="nonfiction">Non-Fiction</option>
+                                                <option value="mystery">Mystery/Thriller</option>
+                                                <option value="romance">Romance</option>
+                                                <option value="scifi">Science Fiction/Fantasy</option>
+                                                <option value="biography">Biography/Memoir</option>
+                                                <option value="history">History</option>
+                                                <option value="selfhelp">Self-Help</option>
+                                                <option value="children">Children's Books</option>
+                                                <option value="textbook">Textbook</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="bookLanguage" class="form-label">Language *</label>
+                                            <select class="form-select" id="bookLanguage" required>
+                                                <option value="english" selected>English</option>
+                                                <option value="spanish">Spanish</option>
+                                                <option value="french">French</option>
+                                                <option value="german">German</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="bookDescription" class="form-label">Description</label>
+                                        <textarea class="form-control" id="bookDescription" rows="3" placeholder="Mention any special features, edition notes, or interesting aspects about this book"></textarea>
+                                    </div>
+                                    
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-primary" onclick="nextStep(1, 2)">Next: Condition & Pricing</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 2: Condition & Pricing -->
+                                <div class="mb-4 d-none" id="step2">
+                                    <h3 class="h5 mb-3 border-bottom pb-2">2. Condition & Pricing</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Condition *</label>
+                                        <div class="row">
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card h-100 condition-card" onclick="selectCondition('like-new')">
+                                                    <div class="card-body text-center">
+                                                        <i class="bi bi-book condition-icon"></i>
+                                                        <h5 class="mt-2">Like New</h5>
+                                                        <p class="small text-muted">No visible wear, looks new</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card h-100 condition-card" onclick="selectCondition('very-good')">
+                                                    <div class="card-body text-center">
+                                                        <i class="bi bi-book condition-icon"></i>
+                                                        <h5 class="mt-2">Very Good</h5>
+                                                        <p class="small text-muted">Minor shelf wear</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card h-100 condition-card" onclick="selectCondition('good')">
+                                                    <div class="card-body text-center">
+                                                        <i class="bi bi-book condition-icon"></i>
+                                                        <h5 class="mt-2">Good</h5>
+                                                        <p class="small text-muted">Visible wear but intact</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card h-100 condition-card" onclick="selectCondition('fair')">
+                                                    <div class="card-body text-center">
+                                                        <i class="bi bi-book condition-icon"></i>
+                                                        <h5 class="mt-2">Fair</h5>
+                                                        <p class="small text-muted">Worn but readable</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="bookCondition" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="conditionNotes" class="form-label">Condition Notes</label>
+                                        <textarea class="form-control" id="conditionNotes" rows="2" placeholder="Describe any markings, highlights, or damage"></textarea>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="bookPrice" class="form-label">Price ($) *</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="bookPrice" min="0" step="0.01" required>
+                                            </div>
+                                            <small class="text-muted">We recommend checking similar listings for pricing</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Negotiable</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="priceNegotiable">
+                                                <label class="form-check-label" for="priceNegotiable">Price is negotiable</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="prevStep(2, 1)">Back</button>
+                                        <button type="button" class="btn btn-primary" onclick="nextStep(2, 3)">Next: Photos & Location</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 3: Photos & Location -->
+                                <div class="mb-4 d-none" id="step3">
+                                    <h3 class="h5 mb-3 border-bottom pb-2">3. Photos & Location</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Upload Photos *</label>
+                                        <div class="dropzone p-4 border rounded text-center" id="photoDropzone">
+                                            <i class="bi bi-cloud-arrow-up fs-1 text-muted"></i>
+                                            <p class="mt-2">Drag & drop book photos here or click to browse</p>
+                                            <input type="file" id="bookPhotos" class="d-none" accept="image/*" multiple>
+                                            <button type="button" class="btn btn-sm btn-outline-primary mt-2" onclick="document.getElementById('bookPhotos').click()">Select Files</button>
+                                        </div>
+                                        <small class="text-muted">Upload at least 1 clear photo of the cover and spine. Max 5 photos.</small>
+                                        <div class="mt-2" id="photoPreview"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="bookLocation" class="form-label">Pickup Location *</label>
+                                        <select class="form-select" id="bookLocation" required>
+                                            <option value="" selected disabled>Select your preferred pickup location</option>
+                                            <option value="home">My Home Address</option>
+                                            <option value="neutral">Neutral Public Location (coffee shop, library, etc.)</option>
+                                            <option value="delivery">Local Delivery (additional fee)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3" id="locationDetailsContainer" style="display: none;">
+                                        <label for="locationDetails" class="form-label">Location Details</label>
+                                        <textarea class="form-control" id="locationDetails" rows="2" placeholder="Provide specific address or meeting spot details"></textarea>
+                                        <small class="text-muted">Exact address will only be shared after purchase</small>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="prevStep(3, 2)">Back</button>
+                                        <button type="button" class="btn btn-primary" onclick="nextStep(3, 4)">Next: Review & Submit</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 4: Review & Submit -->
+                                <div class="d-none" id="step4">
+                                    <h3 class="h5 mb-3 border-bottom pb-2">4. Review Your Listing</h3>
+                                    
+                                    <div class="card mb-4">
+                                        <div class="row g-0">
+                                            <div class="col-md-4 bg-light d-flex align-items-center justify-content-center" id="reviewBookImage">
+                                                <i class="bi bi-book fs-1 text-muted"></i>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h4 id="reviewBookTitle">Book Title</h4>
+                                                    <p class="text-muted" id="reviewBookAuthor">Author Name</p>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <span class="badge bg-primary" id="reviewBookCondition">Condition</span>
+                                                        <span class="fw-bold fs-5" id="reviewBookPrice">$0.00</span>
+                                                    </div>
+                                                    <p class="small" id="reviewBookLocation"><i class="bi bi-geo-alt"></i> Pickup: Location</p>
+                                                    <p class="card-text" id="reviewBookDescription">No description provided</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                        <label class="form-check-label" for="agreeTerms">
+                                            I agree to the <a href="#">Terms of Service</a> and confirm this book is legally mine to sell
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="prevStep(4, 3)">Back</button>
+                                        <button type="submit" class="btn btn-success">Submit Listing</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <h3 class="h5">Selling Tips</h3>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Clear, well-lit photos get more views</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Accurate condition descriptions build trust</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Competitive pricing helps sell faster</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-5">
+        <!-- Same footer as previous pages -->
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="bi bi-check-circle me-2"></i>Listing Successful!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-book text-success" style="font-size: 3rem;"></i>
+                    <h4 class="my-3">Your book is now listed!</h4>
+                    <p>Local readers can now discover and purchase your book.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="profile.html" class="btn btn-success">View My Listings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Multi-step form functionality
+        function nextStep(current, next) {
+            // Validate current step before proceeding
+            if (validateStep(current)) {
+                document.getElementById('step' + current).classList.add('d-none');
+                document.getElementById('step' + next).classList.remove('d-none');
+                updateReview();
+            }
+        }
+        
+        function prevStep(current, prev) {
+            document.getElementById('step' + current).classList.add('d-none');
+            document.getElementById('step' + prev).classList.remove('d-none');
+        }
+        
+        function validateStep(step) {
+            // Simple validation for demo purposes
+            // In a real app, you would validate each required field
+            if (step === 1) {
+                const title = document.getElementById('bookTitle').value;
+                const author = document.getElementById('bookAuthor').value;
+                if (!title || !author) {
+                    alert('Please fill in all required fields');
+                    return false;
+                }
+            } else if (step === 2) {
+                const condition = document.getElementById('bookCondition').value;
+                const price = document.getElementById('bookPrice').value;
+                if (!condition || !price) {
+                    alert('Please select condition and set a price');
+                    return false;
+                }
+            } else if (step === 3) {
+                const location = document.getElementById('bookLocation').value;
+                if (!location) {
+                    alert('Please select a pickup location');
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        // Condition selection
+        function selectCondition(condition) {
+            document.getElementById('bookCondition').value = condition;
+            
+            // Update UI
+            document.querySelectorAll('.condition-card').forEach(card => {
+                card.classList.remove('border-primary', 'bg-light');
+            });
+            
+            const selectedCard = event.currentTarget;
+            selectedCard.classList.add('border-primary', 'bg-light');
+        }
+        
+        // Location details toggle
+        document.getElementById('bookLocation').addEventListener('change', function() {
+            const locationDetails = document.getElementById('locationDetailsContainer');
+            if (this.value !== 'home') {
+                locationDetails.style.display = 'block';
+            } else {
+                locationDetails.style.display = 'none';
+            }
+        });
+        
+        // Photo upload preview
+        document.getElementById('bookPhotos').addEventListener('change', function() {
+            const preview = document.getElementById('photoPreview');
+            preview.innerHTML = '';
+            
+            if (this.files.length > 5) {
+                alert('Maximum 5 photos allowed');
+                this.value = '';
+                return;
+            }
+            
+            for (let i = 0; i < this.files.length; i++) {
+                const file = this.files[i];
+                if (!file.type.match('image.*')) continue;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'img-thumbnail me-2 mb-2';
+                    img.style.height = '100px';
+                    preview.appendChild(img);
+                    
+                    // Set first image as review image
+                    if (i === 0) {
+                        document.getElementById('reviewBookImage').innerHTML = '';
+                        const reviewImg = img.cloneNode();
+                        reviewImg.style.width = '100%';
+                        reviewImg.style.height = 'auto';
+                        reviewImg.style.objectFit = 'cover';
+                        document.getElementById('reviewBookImage').appendChild(reviewImg);
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Drag and drop for photos
+        const dropzone = document.getElementById('photoDropzone');
+        dropzone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('border-primary', 'bg-light');
+        });
+        
+        dropzone.addEventListener('dragleave', function() {
+            this.classList.remove('border-primary', 'bg-light');
+        });
+        
+        dropzone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('border-primary', 'bg-light');
+            document.getElementById('bookPhotos').files = e.dataTransfer.files;
+            document.getElementById('bookPhotos').dispatchEvent(new Event('change'));
+        });
+        
+        // Update review section
+        function updateReview() {
+            document.getElementById('reviewBookTitle').textContent = document.getElementById('bookTitle').value;
+            document.getElementById('reviewBookAuthor').textContent = document.getElementById('bookAuthor').value;
+            
+            const condition = document.getElementById('bookCondition').value;
+            if (condition) {
+                const conditionText = condition.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+                document.getElementById('reviewBookCondition').textContent = conditionText;
+            }
+            
+            document.getElementById('reviewBookPrice').textContent = '$' + 
+                parseFloat(document.getElementById('bookPrice').value || 0).toFixed(2);
+            
+            const location = document.getElementById('bookLocation').value;
+            if (location) {
+                let locationText = '';
+                if (location === 'home') locationText = 'Pickup: Seller\'s Home';
+                else if (location === 'neutral') locationText = 'Pickup: Public Location';
+                else if (location === 'delivery') locationText = 'Delivery Available';
+                document.getElementById('reviewBookLocation').innerHTML = 
+                    `<i class="bi bi-geo-alt"></i> ${locationText}`;
+            }
+            
+            const description = document.getElementById('bookDescription').value;
+            if (description) {
+                document.getElementById('reviewBookDescription').textContent = description;
+            }
+        }
+        
+        // Form submission
+        document.getElementById('bookUploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!document.getElementById('agreeTerms').checked) {
+                alert('Please agree to the Terms of Service');
+                return;
+            }
+            
+            // In a real app, you would send this data to your server
+            const formData = {
+                title: document.getElementById('bookTitle').value,
+                author: document.getElementById('bookAuthor').value,
+                isbn: document.getElementById('bookIsbn').value,
+                genre: document.getElementById('bookGenre').value,
+                language: document.getElementById('bookLanguage').value,
+                description: document.getElementById('bookDescription').value,
+                condition: document.getElementById('bookCondition').value,
+                conditionNotes: document.getElementById('conditionNotes').value,
+                price: document.getElementById('bookPrice').value,
+                negotiable: document.getElementById('priceNegotiable').checked,
+                location: document.getElementById('bookLocation').value,
+                locationDetails: document.getElementById('locationDetails').value,
+                photos: document.getElementById('bookPhotos').files.length
+            };
+            
+            console.log('Form submitted:', formData);
+            
+            // Show success modal
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        });
+    </script>
+</body>
+</html>
